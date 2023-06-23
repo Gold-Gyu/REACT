@@ -10,6 +10,7 @@ const NavBar = () => {
                 <ul className="navbar-nav">
                     <li className="nav-item">
                         <NavLink
+
                             activeClassName="active"
                             to="/blogs" className="nav-link" aria-current="page">
                             Blogs
