@@ -7,16 +7,31 @@ const NavBar = () => {
         <nav className="navbar navbar-dark bg-dark">
             <div className="container">
                 <Link className="navbar-brand" to="/">Home</Link>
-                <ul className="navbar-nav">
+                <ul 
+                    style={{
+                        flexDirection: 'row'
+                    }}
+                    className="navbar-nav">
+                    <li className="nav-item me-2">
+                        <NavLink
+                            activeClassName="active"
+                            to="/admin"
+                            className="nav-link"
+                            aria-current="page">
+                            Admin
+                        </NavLink>
+                    </li>
                     <li className="nav-item">
                         <NavLink
-
                             activeClassName="active"
-                            to="/blogs" className="nav-link" aria-current="page">
+                            to="/blogs"
+                            className="nav-link"
+                            aria-current="page">
                             Blogs
                         </NavLink>
                     </li>
                 </ul>
+  
             </div>
         </nav>
     )
