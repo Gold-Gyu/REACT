@@ -22,6 +22,8 @@
 
 - DB랑 소통하기 위해서는 axios를 통해 비동기식 처리를 한다.
 
+- 이벤트 버블링을 막기위한 함수 stopPropagation()
+
 - 컴포넌트에는 onClick을 할 수 없기 때문에 props로 인자로 보내줘서 처리하는 것더 하나의 바업이다.
 
 - useHistory를 통해서도 페이지 이동을할 수 있다.
@@ -37,3 +39,12 @@ useEffect(() => {
 	}, [])
 
 - bootstrap에서 "className="flex-grow-1" 을 통해 자기 자신 제외 나머지를 모두 우측으로 몰아넣을 수 있다.
+
+- ## pagenation
+
+- ## Spread syntax
+
+- ## 소수점 올림방법 Math.ceil(number/Num)
+
+- ## int 형식으로 바꾸는방법
+    parseInt(num)

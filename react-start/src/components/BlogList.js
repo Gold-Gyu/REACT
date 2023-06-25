@@ -5,14 +5,34 @@ import Card from "../components/Card"
 import { useHistory } from "react-router-dom"
 import LoadingSpinner from "../components/LoadingSpinner"
 import { bool } from "prop-types"
+import Pagination from "./Pagination"
+import { useLocation } from "react-router-dom/cjs/react-router-dom.min"
 
 const BlogList = ({isAdmin}) => {
 
 	const history = useHistory()
+	// url에 기록남기고 그 기록을 통해 뒤로가기 만들기
+	const location = useLocation()
+	const params = new URLSearchParams(location.search)
+	const pageParams = params.get('page')
+	
 	// 포스트
 	const [posts, setPosts] = useState([])
 	// 로딩
 	const [loading, setLoading] = useState(true)
+	// 페이지
+	const [currentPage, setCurrentPage] = useState(1)
+	const [numberOfPosts, setnumberOfPosts] = useState(0)
+	const [numberOfPages, setnumberOfPages] = useState(0)
+	const limit = 1
+
+
+	//numberOfPosts가 바뀔 때마다 numberOfpages를 계산
+	useEffect(()=> {
+		setnumberOfPages(Math.ceil(numberOfPosts/limit))
+	}, [numberOfPosts])
+
+
 
 	const deletePost = (e, id) => {
 		// stopPropagation은 버블링을 막아줌으로써 해당 요소의 이벤트만 발생할 수 있도록함
@@ -26,17 +46,37 @@ const BlogList = ({isAdmin}) => {
 			})
 	}
 
-	const getPosts = () => {
-		axios.get("http://localhost:3001/posts")
-			.then((res) => {
-				setPosts(res.data)
-				setLoading(false)
-			})
+
+	const onClickPageButton = (page) => {
+		history.push(`/admin?page=${page}`)
+		getPosts(page)
+	}
+	const getPosts = (page = 1) => {
+		let params = {
+			_page: page,
+			_limit: limit,
+			_sort: 'id',
+			_order: 'desc',
+		}
+
+		if (!isAdmin) {
+			params = {...params, Publish: true}
+		}
+
+		axios.get(`http://localhost:3001/posts`, {
+			params : params
+		})
+		.then((res) => {
+			setnumberOfPosts(res.headers['x-total-count'])
+			setPosts(res.data)
+			setLoading(false)
+		})
 	}
 
 	useEffect(() => {
-		getPosts();
-	}, [])
+		setCurrentPage(parseInt(pageParams) || 1);
+		getPosts(parseInt(pageParams) || 1);
+	}, [pageParams])
 
 	if (loading) {
 		return (
@@ -46,27 +86,38 @@ const BlogList = ({isAdmin}) => {
 	if (posts.length === 0) {
 		return (<div>No blog posts found</div>)
 	}
-	return posts.filter(post => {
-		return isAdmin || post.Publish
-	}).map(post => {
-		return (
-			<Card
-				key={post.id}
-				title={post.title}
-				onClick={() => history.push(`/blogs/${post.id}`)}>
 
-				{isAdmin ?  (<div>
-
-					<button
-						className="btn btn-danger btn-sm"
-						onClick={(e) => deletePost(e, post.id)}
-					>DELETE</button>
-				</div>) 
-				 : null
-				}
-			</Card>
-		)
-	})
+	const renderBlogList = () => {
+		return posts.map(post => {
+			return (
+				<Card
+					key={post.id}
+					title={post.title}
+					onClick={() => history.push(`/blogs/${post.id}`)}>
+	
+					{isAdmin ?  (<div>
+	
+						<button
+							className="btn btn-danger btn-sm"
+							onClick={(e) => deletePost(e, post.id)}
+						>DELETE</button>
+					</div>) 
+					 : null
+					}
+				</Card>
+			)
+		})
+	}
+	return (
+		<div>
+			{renderBlogList()}
+			{numberOfPages > 1 && <Pagination
+				currentPage={currentPage}
+				numberOfPages={numberOfPages}
+				onClick={onClickPageButton}
+				/>}
+		</div>
+	)
 }
 
 BlogList.propTypes = {
