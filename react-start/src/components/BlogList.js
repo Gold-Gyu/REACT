@@ -24,7 +24,7 @@ const BlogList = ({isAdmin}) => {
 	const [currentPage, setCurrentPage] = useState(1)
 	const [numberOfPosts, setnumberOfPosts] = useState(0)
 	const [numberOfPages, setnumberOfPages] = useState(0)
-	const limit = 1
+	const limit = 5
 
 
 	//numberOfPosts가 바뀔 때마다 numberOfpages를 계산
@@ -94,7 +94,6 @@ const BlogList = ({isAdmin}) => {
 					key={post.id}
 					title={post.title}
 					onClick={() => history.push(`/blogs/${post.id}`)}>
-	
 					{isAdmin ?  (<div>
 	
 						<button
