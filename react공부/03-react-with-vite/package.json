@@ -1,0 +1,21 @@
+{
+  "type": "module",
+  "name": "manual-react-dev-config-by-vite",
+  "version": "0.0.1",
+  "private": true,
+  "engines": {
+    "node": "^18.0.0",
+    "vscode": "^1.79.0"
+  },
+  "scripts": {
+    "dev": "vite"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-react": "4.0.2",
+    "vite": "4.4.2"
+  },
+  "dependencies": {
+    "react": "18.2.0",
+    "react-dom": "18.2.0"
+  }
+}
