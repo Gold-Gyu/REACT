@@ -1,3 +1,4 @@
+import PageLayout from 'layout/common/PageLayout/PageLayout';
 import { Line } from 'react-chartjs-2';
 import { ChartData } from 'types/chart';
 
@@ -31,11 +32,11 @@ const chartData: ChartData = {
 
 const ChartPage = () => {
   return (
-    <div>
+    <PageLayout>
       <div>Chart 페이지</div>
 
       <Line data={chartData} />
-    </div>
+    </PageLayout>
   );
 };
 

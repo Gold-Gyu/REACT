@@ -1,4 +1,5 @@
 // import { useState } from 'react';
+import CalendarPageLayout from 'layout/CalendarPageLayout/CalendarPageLayout';
 import './CalendarPage.css';
 import Calendar from 'react-calendar';
 import 'react-calendar/dist/Calendar.css';
@@ -10,10 +11,11 @@ function CalendarPage() {
 
   const date = new Date();
   return (
-    <div>
+    <CalendarPageLayout>
       <div>CalendarPage</div>
       <Calendar value={date} />
-    </div>
+      <div>Footer</div>
+    </CalendarPageLayout>
   );
 }
 

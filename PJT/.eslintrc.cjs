@@ -7,7 +7,7 @@ module.exports = {
     ecmaVersion: 13,
     sourceType: "module",
   },
-  plugins: ["react", "@typescript-eslint"],
+  plugins: ["react", "@typescript-eslint", "prettier-plugin-tailwindcss"],
   extends: [
     "eslint:recommended",
     "plugin:react/recommended",
