@@ -3,6 +3,7 @@ import PageLayout from 'layout/common/PageLayout/PageLayout';
 import BodyLayout from '../common/BodyLayout/BodyLayout';
 import { ReactNode } from 'react';
 import FooterLayout from 'layout/common/FooterLayout/FooterLayout';
+import './CalendarPageLayout.css';
 
 function CalendarPageLayout({ children }: { children: ReactNode[] }) {
   return (
@@ -13,7 +14,7 @@ function CalendarPageLayout({ children }: { children: ReactNode[] }) {
       </HeaderLayout>
       <BodyLayout>
         <div>Body</div>
-        <div>
+        <div className="body-container">
           <div>{children[1]}</div>
         </div>
       </BodyLayout>
