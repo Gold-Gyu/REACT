@@ -4,6 +4,7 @@ import viteImg from 'assets/react.svg';
 import movePage from 'hooks/common/movePage';
 import CalendarPage from 'pages/CalendarPage/CalendarPage';
 import ChartPage from 'pages/ChartPage/ChartPage';
+
 function Home() {
   const { goPage } = movePage();
   return (
@@ -33,9 +34,6 @@ function Home() {
       <ChartPage />
       <div>Footer입니다.</div>
     </HomePageLayout>
-    // <div>
-
-    // </div>
   );
 }
 

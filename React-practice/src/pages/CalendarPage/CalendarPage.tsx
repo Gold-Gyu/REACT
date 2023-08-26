@@ -26,7 +26,7 @@ function CalendarPage() {
           value={today}
           next2Label={null}
           prev2Label={null}
-          calendarType="ISO 8601"
+          calendarType="hebrew"
         />
       </div>
       <div className="selected-date">
