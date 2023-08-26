@@ -2,3 +2,18 @@
   width: 90vw;
   max-width: 900px;
 }
+
+.chart-text-box {
+  display: flex;
+  justify-content: center;
+}
+
+.chart-outer-box {
+  padding: 10px;
+}
+
+.selected-date{
+  padding: 10px;
+  display: flex;
+  justify-content: center;
+}

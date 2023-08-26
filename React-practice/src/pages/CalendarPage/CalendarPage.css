@@ -1,0 +1,15 @@
+.calendar-intro-text {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 10px;
+
+}
+
+.calendar-outer-box{
+  padding: 10px;
+}
+
+.calendar-inner-box{
+  display: flex;
+  justify-content: center;
+}

@@ -1,6 +1,21 @@
 .home-box {
   display: flex;
+  /* justify-content: center; */
+  /* align-items: center; */
+  height: 30px;
+  /* gap: 20px; */
+}
+.chart-box {
+  display: flex;
   justify-content: center;
   align-items: center;
-  gap: 20px;
+  height: 30px;
+  /* gap: 20px; */
+}
+.calendar-box {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 30px;
+  /* gap: 20px; */
 }

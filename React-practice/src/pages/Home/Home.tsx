@@ -1,23 +1,41 @@
-import { Link } from 'react-router-dom';
+import HomePageLayout from 'layout/HomePageLayout/HomePageLayout';
 import './Home.css';
-
+import viteImg from 'assets/react.svg';
+import movePage from 'hooks/common/movePage';
+import CalendarPage from 'pages/CalendarPage/CalendarPage';
+import ChartPage from 'pages/ChartPage/ChartPage';
 function Home() {
+  const { goPage } = movePage();
   return (
-    <div>
-      <div className="home-box">Home</div>
+    <HomePageLayout>
       <div className="home-box">
-        <Link to="/chart">
-          <button type="button">
-            <p>차트보러가기</p>
-          </button>
-        </Link>
-        <Link to="/calendar">
-          <button type="button">
-            <p>달려보러가기</p>
-          </button>
-        </Link>
+        <img src={viteImg} alt="" onClick={() => goPage('/calendar')} />
       </div>
-    </div>
+      <div className="chart-box">Chart</div>
+      <div className="calendar-box">Calendar</div>
+      <div>
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Provident illo
+        quasi repellendus et quia enim, consequatur, tempore nemo, dolore vero
+        dolorum expedita delectus non iste voluptatibus cumque temporibus eos
+        reiciendis. Lorem ipsum dolor sit amet consectetur, adipisicing elit.
+        Officia ut, amet culpa molestiae rerum, doloremque, quia possimus
+        obcaecati alias asperiores a nihil. Placeat vel ab quibusdam dignissimos
+        ducimus omnis provident, fugit adipisci molestias perspiciatis maiores
+        quis, odio ullam eaque facere dolor laboriosam maxime, pariatur nisi
+        enim quo. Odio, fugit. Dolores tempore ipsum recusandae. Magni
+        consectetur excepturi perspiciatis ipsum aliquid nostrum porro beatae
+        sunt fugiat deserunt natus, voluptates ducimus, id odit vel possimus
+        saepe, ullam odio iure aperiam. Quidem recusandae magni nobis aliquam,
+        in ad dolor laudantium ullam, odit sint nulla provident harum molestias
+        voluptatem odio adipisci enim labore fugit iure.
+      </div>
+      <CalendarPage />
+      <ChartPage />
+      <div>Footer입니다.</div>
+    </HomePageLayout>
+    // <div>
+
+    // </div>
   );
 }
 
