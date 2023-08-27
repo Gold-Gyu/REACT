@@ -37,7 +37,7 @@ const BlogPage = () => {
         return (
           <div className="blog-list-box" key={subject}>
             <BlogContent title={subject} />
-            <button onClick={()=>deleteArticle(idx)}>DELETE</button>
+            <button className='delete-box' onClick={()=>deleteArticle(idx)}>DELETE</button>
           </div>
         );
       })}
