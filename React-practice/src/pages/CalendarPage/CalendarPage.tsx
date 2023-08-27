@@ -23,6 +23,7 @@ function CalendarPage() {
       <div className="calendar-inner-box">
         <Calendar
           onChange={onCalendarChange}
+          
           value={today}
           next2Label={null}
           prev2Label={null}

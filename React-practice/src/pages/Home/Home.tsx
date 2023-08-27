@@ -12,7 +12,7 @@ function Home() {
       <div className="home-box">
         <img src={viteImg} alt="" onClick={() => goPage('/calendar')} />
       </div>
-      <div className="chart-box">Chart</div>
+      <div className="chart-box" onClick={() => goPage('/Blog')}>Blog</div>
       <div className="calendar-box">Calendar</div>
       <div>
         Lorem ipsum dolor sit amet, consectetur adipisicing elit. Provident illo

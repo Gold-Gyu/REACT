@@ -1,0 +1,10 @@
+.blog-list-box {
+  padding-left: 20px;
+  text-align: left;
+  border-bottom: 1px solid grey;
+}
+
+.input-box {
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
